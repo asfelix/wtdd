@@ -23,6 +23,9 @@
 # instead of the actual count.
 # So donuts(5) returns 'Number of donuts: 5'
 # and donuts(23) returns 'Number of donuts: many'
+from typing import Any, Tuple
+
+
 def donuts(count):
     text = 'Number of donuts:'
 
