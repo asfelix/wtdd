@@ -17,13 +17,10 @@
 # If the string length is less than 3, leave it unchanged.
 # Return the resulting string.
 def verbing(s):
-    txt1 = 'ing'
-    txt2 = 'ly'
-
     if (s[-3:] == 'ing'):
-        s = s + txt2
-    if ((len(s) > 3) and (s[-3:] != txt2)):
-        s = s + txt1
+        s = s + 'ly'
+    if (len(s) >= 3) and (s[-2:] != 'ly'):
+        s = s + 'ing'
     return s
 
 
