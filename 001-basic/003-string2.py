@@ -19,7 +19,7 @@
 def verbing(s):
     if (s[-3:] == 'ing'):
         s = s + 'ly'
-    if (len(s) >= 3) and (s[-2:] != 'ly'):
+    if (len(s) >= 3) and (s[-2:] != 'ing'):
         s = s + 'ing'
     return s
 
