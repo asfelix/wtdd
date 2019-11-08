@@ -19,8 +19,9 @@
 def verbing(s):
     if (s[-3:] == 'ing'):
         s = s + 'ly'
-    if (len(s) >= 3) and (s[-2:] != 'ing'):
+    if (len(s) >= 3) and (s[-2:] != 'ly'):
         s = s + 'ing'
+
     return s
 
 
@@ -33,8 +34,18 @@ def verbing(s):
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
 def not_bad(s):
-    # +++your code here+++
-    return
+    lista = s.split(' ')
+    if 'not' and 'bad' in lista:
+        x,y = lista.index('not'), lista.index('bad')
+        if x < y:
+            z = lista[x:y+1]
+
+            for w in z:
+                lista.remove(w)
+
+        lista.append('good')
+
+    return lista
 
 
 # F. front_back
