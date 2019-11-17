@@ -16,7 +16,7 @@ multiple_of_3 = partial(multiple_of, 3)
 def robot(pos):
     say = str(pos)
 
-    if multiple_of_3(pos) and multiple_of_5(pos):
+    if multiple_of_3(pos) or multiple_of_5(pos):
         say = 'FizzBuzz'
     elif multiple_of_5(pos):
         say = 'Buzz'
@@ -25,19 +25,31 @@ def robot(pos):
 
     return say
 
+def assert_equal(result, expected):
+    from sys import _getframe
+
+    msg = 'Fail: Line {} got {} expecting {}'
+
+    if not result == expected:
+        current = _getframe()
+        caller = current.f_back
+        line_no = caller.f_lineno
+        print(msg.format(line_no, result, expected))
+
 if __name__ == '__main__':
-    assert robot(1) == '1'
-    assert robot(2) == '2'
-    assert robot(4) == '4'
+    assert_equal(robot(1), '1')
+    assert_equal(robot(2), '2')
+    assert_equal(robot(4), '4')
 
-    assert robot(3) == 'Fizz'
-    assert robot(6) == 'Fizz'
-    assert robot(9) == 'Fizz'
+    assert_equal(robot(3), 'Fizz')
 
-    assert robot(5) == 'Buzz'
-    assert robot(10) == 'Buzz'
-    assert robot(20) == 'Buzz'
+    assert_equal(robot(6), 'Fizz')
+    assert_equal(robot(9), 'Fizz')
 
-    assert robot(15) == 'FizzBuzz'
-    assert robot(30) == 'FizzBuzz'
-    assert robot(45) == 'FizzBuzz'
+    assert_equal(robot(5), 'Buzz')
+    assert_equal(robot(10), 'Buzz')
+    assert_equal(robot(20), 'Buzz')
+
+    assert_equal(robot(15), 'FizzBuzz')
+    assert_equal(robot(30), 'FizzBuzz')
+    assert_equal(robot(45), 'FizzBuzz')
