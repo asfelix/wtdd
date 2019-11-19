@@ -1,4 +1,7 @@
 # HappyNumbers
+'''
+by Alexsandro Felix
+'''
 
 ## Como saber se um número é feliz ou triste?
 1. Dado um número inteiro positivo.
