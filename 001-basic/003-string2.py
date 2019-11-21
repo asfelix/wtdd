@@ -50,17 +50,17 @@ def not_bad(s):
 # e.g. 'abcde', the front half is 'abc', the back half 'de'.
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
-def front_back(a, b):
-    def mid(s):
-        return sum(divmod(len(s), 2))
+#def front_back(a, b):
+#    def mid(s):
+#        return sum(divmod(len(s), 2))
 
-    def front(s):
-        return s[:mid(s)]
+#    def front(s):
+#        return s[:mid(s)]
 
-    def back(s):
-        return s[mid(s):]
+#    def back(s):
+#        return s[mid(s):]
 
-    return ''.join((front(a), front(b), back(a), back(b)))
+#    return ''.join((front(a), front(b), back(a), back(b)))
 
 def front_back(a, b):
     mid = lambda s: sum(divmod(len(s), 2))
